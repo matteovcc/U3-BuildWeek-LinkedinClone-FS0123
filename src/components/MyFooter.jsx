@@ -3,9 +3,9 @@ import { Col, Container, Form, FormText, Row } from "react-bootstrap";
 const MyFooter = () => {
   return (
     <>
-      <Container className="text-secondary mt-5">
+      <Container className="text-secondary mt-5 pb-2">
         <Row>
-          <Col xs={2} className="">
+          <Col md={2} className="col-xs-12 mb-1">
             <div className="d-flex flex-column">
               <small>Informazioni</small>
               <small>Linee Guida Community</small>
@@ -14,7 +14,7 @@ const MyFooter = () => {
               <small>Centro Sicurezza</small>
             </div>
           </Col>
-          <Col xs={2}>
+          <Col md={2} className="col-xs-12 mb-1">
             <div className="d-flex flex-column">
               <small>Accessibilita</small>
               <small>Carriera</small>
@@ -22,7 +22,7 @@ const MyFooter = () => {
               <small>Mobile</small>
             </div>
           </Col>
-          <Col xs={2}>
+          <Col xs={2} className="col-xs-12 mb-1">
             {" "}
             <div className="d-flex flex-column">
               <small>Talent Solutions</small>
@@ -31,7 +31,7 @@ const MyFooter = () => {
               <small>Piccole imprese</small>
             </div>
           </Col>
-          <Col xs={2}>
+          <Col md={2} className="col-xs-12 mb-1">
             {" "}
             <div className="d-flex flex-column">
               <div className="d-flex">
@@ -100,7 +100,7 @@ const MyFooter = () => {
               </div>
             </div>
           </Col>
-          <Col xs={2}>
+          <Col md={2} className="col-xs-12">
             {" "}
             <FormText>Seleziona Lingua</FormText>
             <Form.Select aria-label="Default select example">
