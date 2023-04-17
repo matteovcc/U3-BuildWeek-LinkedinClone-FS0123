@@ -10,8 +10,35 @@ import {
   Nav,
 } from "react-bootstrap";
 import ProfileSideBar from "./ProfileSideBar";
+import { useEffect, useState } from "react";
 
 const MainSection = () => {
+  const [user, setUser] = useState([]);
+  const fetchUser = async () => {
+    try {
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/me",
+        {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNkMjJmYzIyYTZhYjAwMTQxYTg1NmYiLCJpYXQiOjE2ODE3MjgyNTIsImV4cCI6MTY4MjkzNzg1Mn0.6Ht22tt5eNs5wlp5tEG-7SPSIYZ6s95KvMIHAni3vTg",
+          },
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        setUser(data);
+      } else {
+        console.log("Failed to fetch");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
   return (
     <Container className="mt-4">
       <Row>
@@ -24,18 +51,21 @@ const MainSection = () => {
               />
               <Card.Body>
                 <img
-                  src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+                  src={user.image}
                   alt="foto-profilo"
                   width={150}
                   style={{ borderRadius: "50%" }}
                 />
                 <div className="d-flex justify-content-beetwen">
                   <div className="me-5">
-                    <Card.Title className="fs-4 mb-0">Name Here</Card.Title>
-                    <Card.Text className="mb-1">Titoli accademici</Card.Text>
+                    <Card.Title className="fs-4 mb-0">
+                      {user.name} {user.surname}
+                    </Card.Title>
+                    <Card.Text className="mt-1 mb-0">{user.title}</Card.Text>
+                    <Card.Text className="mb-1">{user.bio}</Card.Text>
                     <Card.Text className="mb-4">
                       <div className="subtitles">
-                        Informazioni di Residenza •
+                        {user.area}•
                         <a href="#" className="link-main">
                           {" "}
                           Informazioni di contatto
