@@ -14,6 +14,7 @@ const MyNavbar = () => {
         <Container className="d-flex px-5">
           <Navbar.Brand href="#">
             <img
+              className="mt-2"
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png"
               width={40}
               height={40}
@@ -27,25 +28,25 @@ const MyNavbar = () => {
               </Form>
             </Col>
             <Nav className="ms-auto my-2 my-lg-0" style={{ maxHeight: "100px" }} navbarScroll>
-              <Nav.Link href="#home" className="d-flex flex-column align-items-center">
-                <AiFillHome />
-                Home
+              <Nav.Link href="#home" className="d-flex flex-column align-items-center ">
+                <AiFillHome fontSize={25} />
+                <p style={{ fontSize: 12 }}>Home</p>
               </Nav.Link>
               <Nav.Link href="#MyNetwork" className="d-flex flex-column align-items-center">
-                <HiUsers />
-                My Network
+                <HiUsers fontSize={25} />
+                <p style={{ fontSize: 12 }}>My Network</p>
               </Nav.Link>
               <Nav.Link href="#Jobs" className="d-flex flex-column align-items-center">
-                <MdWork />
-                Jobs
+                <MdWork fontSize={25} />
+                <p style={{ fontSize: 12 }}>Jobs</p>
               </Nav.Link>
               <Nav.Link href="#Messging" className="d-flex flex-column align-items-center">
-                <TbMessageCircle />
-                Messaging
+                <TbMessageCircle fontSize={25} />
+                <p style={{ fontSize: 12 }}>Messaging</p>
               </Nav.Link>
               <Nav.Link href="#Notifications" className="d-flex flex-column align-items-center">
-                <IoMdNotifications />
-                Notifications
+                <IoMdNotifications fontSize={25} />
+                <p style={{ fontSize: 12 }}>Notifications</p>
               </Nav.Link>
               <NavDropdown className="border-end" title="Me" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Account</NavDropdown.Item>
