@@ -1,1 +1,17 @@
+.subtitles {
+  font-weight: lighter;
+  color: rgba(120, 120, 120, 0.871);
+}
 
+.link-main {
+  font-weight: bold;
+  font-size: small;
+}
+
+.ununderline {
+  text-decoration: none;
+}
+
+.split {
+  justify-content: space-between;
+}
