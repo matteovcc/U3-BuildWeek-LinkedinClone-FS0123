@@ -5,7 +5,7 @@ import "../SideBar.css";
 const ProfileSideBar = () => {
   return (
     <>
-      <Col xs={2} className="bg-light">
+      <Col xs={3} className="bg-light">
         {/* Modifica Url */}
         <Card className="py-1 px-1">
           <ListGroup variant="flush">

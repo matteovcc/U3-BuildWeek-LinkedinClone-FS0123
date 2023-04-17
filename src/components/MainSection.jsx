@@ -13,9 +13,9 @@ import ProfileSideBar from "./ProfileSideBar";
 
 const MainSection = () => {
   return (
-    <Container>
+    <Container className="mt-4">
       <Row>
-        <Col lg={7}>
+        <Col lg={9}>
           <div className="profileCard mb-3">
             <Card>
               <Card.Img
