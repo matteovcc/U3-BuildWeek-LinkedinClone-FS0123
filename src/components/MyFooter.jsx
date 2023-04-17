@@ -3,7 +3,7 @@ import { Col, Container, Form, FormText, Row } from "react-bootstrap";
 const MyFooter = () => {
   return (
     <>
-      <Container className="text-secondary">
+      <Container className="text-secondary mt-5">
         <Row>
           <Col xs={2} className="">
             <div className="d-flex flex-column">
