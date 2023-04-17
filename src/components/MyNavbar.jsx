@@ -10,8 +10,8 @@ import { IoMdNotifications } from "react-icons/io";
 const MyNavbar = () => {
   return (
     <Navbar bg="white" expand="lg" sticky="top" className="mb-0 pb-0">
-      <Container fluid className="px-5 ">
-        <Container className="d-flex px-5">
+      <Container fluid>
+        <Container className="d-flex">
           <Navbar.Brand href="#">
             <img
               className="mt-2"
