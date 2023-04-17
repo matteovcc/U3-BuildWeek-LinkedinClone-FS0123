@@ -8,10 +8,12 @@ import MainSection from "./components/MainSection";
 function App() {
   return (
     <>
-      <MyNavbar />
-      {/* <ProfileSideBar /> */}
-      <MainSection />
-      <MyFooter />
+      <div className="bg-light">
+        <MyNavbar />
+        {/* <ProfileSideBar /> */}
+        <MainSection />
+        <MyFooter />
+      </div>
     </>
   );
 }

@@ -9,8 +9,8 @@ import { IoMdNotifications } from "react-icons/io";
 
 const MyNavbar = () => {
   return (
-    <Navbar bg="light" expand="lg" sticky="top">
-      <Container fluid>
+    <Navbar bg="white" expand="lg" sticky="top" className="mb-0 pb-0">
+      <Container fluid className="px-5 ">
         <Container className="d-flex px-5">
           <Navbar.Brand href="#">
             <img
@@ -24,7 +24,7 @@ const MyNavbar = () => {
           <Navbar.Toggle className="ms-auto" aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Col xs={2}>
-              <Form className="d-flex bg-light">
+              <Form className="d-flex bg-white ">
                 <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
               </Form>
             </Col>
