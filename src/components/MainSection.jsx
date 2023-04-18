@@ -48,6 +48,7 @@ const MainSection = () => {
               <Card.Img
                 variant="top"
                 src="https://up4business.it/blog/wp-content/uploads/2021/10/Sfondo-LinkedIn_-come-cambiarlo-e-personalizzarlo.jpg"
+                style={{ height: 350 }}
               />
               <Card.Body>
                 <img
