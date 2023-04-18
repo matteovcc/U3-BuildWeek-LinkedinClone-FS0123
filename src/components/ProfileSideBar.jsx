@@ -1,8 +1,37 @@
 import { Button, Card, Col, ListGroup } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 import "../SideBar.css";
+import { useEffect, useState } from "react";
 
 const ProfileSideBar = () => {
+  const [friend, setFriend] = useState([]);
+  const [numToShow, setNumToShow] = useState(3);
+
+  const fetchFriends = async () => {
+    try {
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/",
+        {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNkMjJmYzIyYTZhYjAwMTQxYTg1NmYiLCJpYXQiOjE2ODE3MjgyNTIsImV4cCI6MTY4MjkzNzg1Mn0.6Ht22tt5eNs5wlp5tEG-7SPSIYZ6s95KvMIHAni3vTg",
+          },
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        setFriend(data);
+      } else {
+        console.log("error fetching friend");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchFriends();
+  }, []);
   return (
     <>
       <Col xs={3} className="bg-light d-none d-lg-block">
@@ -51,222 +80,132 @@ const ProfileSideBar = () => {
         <Card className="mt-1 py-3 px-2">
           <ListGroup variant="flush">
             <p className="ms-3 fw-bold mb-0">Altri profili consultati</p>
-            <ListGroup.Item>
-              <div className="d-flex align-items-center">
-                <img
-                  src="https://picsum.photos/40/40"
-                  alt=""
-                  className="rounded-circle me-2"
-                />
-                <h6 className="mb-0">Nome Profilo</h6>
-              </div>
-              <p className="small ms-5 mt-0">
-                Profile Summary m error ut, dolorum molestias vel saepe
-                velituptatum. Modi, quod beatae!
-              </p>
-              <Button
-                variant="transparent border-1 border-secondary rounded-5 ms-5 py-1 fw-semibold text-secondary"
-                className="btn-grey"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-send me-1"
-                  viewBox="0 0 16 16"
+            {friend.slice(0, numToShow).map((friends) => (
+              <ListGroup.Item key={friends._id}>
+                <div className="d-flex align-items-center">
+                  <img
+                    src={friends.image}
+                    alt=""
+                    className="rounded-circle me-2"
+                    style={{ width: 30, height: 30 }}
+                  />
+                  <h6 className="mb-0 ms-2">
+                    {friends.name} {friends.surname}
+                  </h6>
+                </div>
+                <p className="small ms-5 mt-0 mb-1">
+                  {/* Profile Summary m error ut, dolorum molestias vel saepe
+                  velituptatum. Modi, quod beatae! */}
+                  {friends.title}
+                </p>
+                <Button
+                  variant="transparent border-1 border-secondary rounded-5 ms-5 py-1 fw-semibold text-secondary"
+                  className="btn-grey"
                 >
-                  <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
-                </svg>{" "}
-                Messaggio{" "}
-              </Button>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <div className="d-flex align-items-center">
-                <img
-                  src="https://picsum.photos/40/40"
-                  alt=""
-                  className="rounded-circle me-2"
-                />
-                <h6 className="mb-0">Nome Profilo</h6>
-              </div>
-              <p className="small ms-5 mt-0">
-                Profile Summary m error ut, dolorum molestias vel saepe
-                velituptatum. Modi, quod beatae!
-              </p>
-              <Button
-                variant="transparent border-1 border-secondary rounded-5 ms-5 py-1 fw-semibold text-secondary"
-                className="btn-grey"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-send me-1"
-                  viewBox="0 0 16 16"
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-send me-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
+                  </svg>{" "}
+                  Messaggio{" "}
+                </Button>
+              </ListGroup.Item>
+            ))}
+            {numToShow < friend.length && (
+              <ListGroup.Item>
+                <Button
+                  className="justify-content-center w-100 text-center fw-semibold mb-0 text-dark border-1 rounded"
+                  variant="link"
+                  onClick={() => setNumToShow(friend.length)}
+                  style={{ textDecoration: "none" }}
                 >
-                  <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
-                </svg>{" "}
-                Messaggio{" "}
-              </Button>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <div className="d-flex align-items-center">
-                <img
-                  src="https://picsum.photos/40/40"
-                  alt=""
-                  className="rounded-circle me-2"
-                />
-                <h6 className="mb-0">Nome Profilo</h6>
-              </div>
-              <p className="small ms-5 mt-0">
-                Profile Summary m error ut, dolorum molestias vel saepe
-                velituptatum. Modi, quod beatae!
-              </p>
-              <Button
-                variant="transparent border-1 border-secondary rounded-5 ms-5 py-1 fw-semibold text-secondary"
-                className="btn-grey"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-send me-1"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />
-                </svg>{" "}
-                Messaggio{" "}
-              </Button>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <p className="text-center fw-semibold mb-0">
-                Visualizza Altro{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-caret-down-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                </svg>
-              </p>
-            </ListGroup.Item>
+                  Visualizza Altro
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-caret-down-fill ms-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                  </svg>
+                </Button>
+              </ListGroup.Item>
+            )}
           </ListGroup>
         </Card>
         {/* Persone che potresti conoscere */}
         <Card className="mt-1 py-3 px-2">
           <ListGroup variant="flush">
             <p className="ms-3 fw-bold mb-0">Persone che potresti conoscere</p>
-            <ListGroup.Item>
-              <div className="d-flex align-items-center">
-                <img
-                  src="https://picsum.photos/40/40"
-                  alt=""
-                  className="rounded-circle me-2"
-                />
-                <h6 className="mb-0">Nome Profilo</h6>
-              </div>
-              <p className="small ms-5 mt-0">
-                Profile Summary m error ut, dolorum molestias vel saepe
-              </p>
-              <Button
-                variant="transparent border-1 border-secondary rounded-5 ms-5 py-1 fw-semibold text-secondary"
-                className="btn-grey"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  fill="currentColor"
-                  className="bi bi-person-add me-2"
-                  viewBox="0 0 16 16"
+            {friend
+              .slice(0, numToShow)
+              .reverse()
+              .map((friends) => (
+                <ListGroup.Item key={friends._id}>
+                  <div className="d-flex align-items-center">
+                    <img
+                      src={friends.image}
+                      alt=""
+                      className="rounded-circle me-2"
+                      style={{ width: 30, height: 30 }}
+                    />
+                    <h6 className="mb-0 ms-2">
+                      {friends.name} {friends.surname}
+                    </h6>
+                  </div>
+                  <p className="small ms-5 mt-0 mb-1">
+                    {/* Profile Summary m error ut, dolorum molestias vel saepe
+                  velituptatum. Modi, quod beatae! */}
+                    {friends.title}
+                  </p>
+                  <Button
+                    variant="transparent border-1 border-secondary rounded-5 ms-5 py-1 fw-semibold text-secondary"
+                    className="btn-grey"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      fill="currentColor"
+                      className="bi bi-person-add me-1 mb-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+                      <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z" />
+                    </svg>
+                    Collegati{" "}
+                  </Button>
+                </ListGroup.Item>
+              ))}
+            {numToShow < friend.length && (
+              <ListGroup.Item>
+                <Button
+                  className="justify-content-center w-100 text-center fw-semibold mb-0 text-dark border-1 rounded"
+                  variant="link"
+                  onClick={() => setNumToShow(friend.length)}
+                  style={{ textDecoration: "none" }}
                 >
-                  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
-                  <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z" />
-                </svg>
-                Collegati{" "}
-              </Button>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <div className="d-flex align-items-center">
-                <img
-                  src="https://picsum.photos/40/40"
-                  alt=""
-                  className="rounded-circle me-2"
-                />
-                <h6 className="mb-0">Nome Profilo</h6>
-              </div>
-              <p className="small ms-5 mt-0">
-                Profile Summary m error ut, dolorum molestias vel saepe
-              </p>
-              <Button
-                variant="transparent border-1 border-secondary rounded-5 ms-5 py-1 fw-semibold text-secondary"
-                className="btn-grey"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  fill="currentColor"
-                  className="bi bi-person-add me-2"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
-                  <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z" />
-                </svg>
-                Collegati{" "}
-              </Button>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <div className="d-flex align-items-center">
-                <img
-                  src="https://picsum.photos/40/40"
-                  alt=""
-                  className="rounded-circle me-2"
-                />
-                <h6 className="mb-0">Nome Profilo</h6>
-              </div>
-              <p className="small ms-5 mt-0">
-                Profile Summary m error ut, dolorum molestias vel saepe
-              </p>
-              <Button
-                variant="transparent border-1 border-secondary rounded-5 ms-5 py-1 fw-semibold text-secondary"
-                className="btn-grey"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  fill="currentColor"
-                  className="bi bi-person-add me-2"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
-                  <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z" />
-                </svg>
-                Collegati{" "}
-              </Button>
-            </ListGroup.Item>
-            <ListGroup.Item>
-              <p className="text-center fw-semibold mb-0">
-                Visualizza Altro{" "}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-caret-down-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                </svg>
-              </p>
-            </ListGroup.Item>
+                  Visualizza Altro
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-caret-down-fill ms-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                  </svg>
+                </Button>
+              </ListGroup.Item>
+            )}
           </ListGroup>
         </Card>
 
