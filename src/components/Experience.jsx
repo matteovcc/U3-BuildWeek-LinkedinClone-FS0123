@@ -1,3 +1,7 @@
+// import { Card, Modal } from "react-bootstrap";
+// import { connect } from "react-redux";
+// import { showModal, addText } from "../redux/actions";
+
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../redux/actions/index";
@@ -8,13 +12,7 @@ const Experience = () => {
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
 
-  const [inputValue, setInputValue] = useState({
-    qualifica: "",
-    impiego: "seleziona",
-    nomeAzienda: "",
-    località: "",
-    ruoloRicopertoAttualmente: false,
-  });
+  const [inputValue, setInputValue] = useState("");
 
   const dispatch = useDispatch();
 
@@ -46,12 +44,12 @@ const Experience = () => {
                 <Form.Control
                   type="text"
                   placeholder="Es:Sales Manager"
-                  value={inputValue.qualifica}
+                  value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                 />
               </Form.Group>
               {/* tipo di impiego */}
-              <Form.Group controlId="impiego">
+              {/* <Form.Group controlId="impiego">
                 <Form.Label>Tipo di impiego</Form.Label>
                 <Form.Select
                   value={inputValue.impiego}
@@ -70,12 +68,12 @@ const Experience = () => {
                 <Form.Control
                   type="text"
                   placeholder="Es:Reliance Industries"
-                  value={inputValue.nomeAzienda}
+                  value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                 ></Form.Control>
               </Form.Group>
               {/* località */}
-              <Form.Group>
+              {/* <Form.Group>
                 <Form.Label>località</Form.Label>
                 <Form.Control
                   type="text"
@@ -83,9 +81,9 @@ const Experience = () => {
                   value={inputValue.località}
                   onChange={(e) => setInputValue(e.target.value)}
                 ></Form.Control>
-              </Form.Group>
+              </Form.Group> */}
               {/* checkbox */}
-              <Form.Group>
+              {/* <Form.Group>
                 <Form.Label></Form.Label>
                 <Form.Check
                   type="checkbox"
@@ -93,7 +91,7 @@ const Experience = () => {
                   checked={inputValue.ruoloRicopertoAttualmente}
                   onChange={(e) => setInputValue(e.target.checked)}
                 />
-              </Form.Group>
+              </Form.Group> */}
             </Form>
           </Modal.Body>
           <Modal.Footer>
@@ -106,7 +104,7 @@ const Experience = () => {
           </Modal.Footer>
         </Modal>
       </div>
-      <p>{inputValue.qualifica}</p>
+      <p>{inputValue}</p>
     </>
   );
 };
