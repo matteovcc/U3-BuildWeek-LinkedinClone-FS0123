@@ -12,6 +12,7 @@ import {
 import ProfileSideBar from "./ProfileSideBar";
 import { useEffect, useState } from "react";
 import Experience from "./Experience";
+import AddFile from "./AddFile";
 
 const MainSection = () => {
   const [user, setUser] = useState([]);
@@ -278,7 +279,8 @@ const MainSection = () => {
               </Card.Body>
             </Card>
           </div>
-          <div className="mb-3">
+          <AddFile />
+          {/* <div className="mb-3">
             <Card>
               <Card.Body>
                 <Card.Title className="fs-5 mb-0 d-flex split">
@@ -287,6 +289,7 @@ const MainSection = () => {
                     className="py-0"
                     variant="outline-primary"
                     style={{ borderRadius: "20px", fontWeight: "bold" }}
+                    onSubmit={AddFile}
                   >
                     Avvia un post
                   </Button>
@@ -323,7 +326,7 @@ const MainSection = () => {
                 </div>
               </Card.Body>
             </Card>
-          </div>
+          </div> */}
           <Experience />
           {/* <div className="mb-3">
             <Card>
