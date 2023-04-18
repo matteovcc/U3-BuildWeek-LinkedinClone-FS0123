@@ -48,7 +48,6 @@ const MainSection = () => {
               <Card.Img
                 variant="top"
                 src="https://up4business.it/blog/wp-content/uploads/2021/10/Sfondo-LinkedIn_-come-cambiarlo-e-personalizzarlo.jpg"
-                style={{ height: 300 }}
               />
               <Card.Body>
                 <img
@@ -103,7 +102,7 @@ const MainSection = () => {
                     </div>
                   </div>
                 </div>
-                <Carousel interval={null}>
+                <Carousel>
                   <Carousel.Item>
                     <img
                       className="d-block w-100"
@@ -327,31 +326,141 @@ const MainSection = () => {
             <Card>
               <Card.Body>
                 <Card.Title className="fs-5 mb-0 d-flex split">
+                  <h5 className="mb-4">Esperienze</h5>
+                  <div>
+                    <button
+                      className="me-3"
+                      style={{ border: "none", backgroundColor: "transparent" }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="25"
+                        height="25"
+                        fill="currentColor"
+                        className="bi bi-plus-lg"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      className="me-2"
+                      style={{ border: "none", backgroundColor: "transparent" }}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        className="bi bi-pencil"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                      </svg>
+                    </button>
+                  </div>
+                </Card.Title>
+                <Card.Text>
+                  <div className="d-flex flex-column">
+                    <div className="d-flex">
+                      <div>
+                        <img
+                          src="https://media.licdn.com/dms/image/C4E0BAQHYgix-Ynux1A/company-logo_100_100/0/1646830188434?e=1689811200&v=beta&t=oArOJOYE7ZD473jCAUzajl3JIXLkxiTvDx61tGEjeAk"
+                          alt="logo"
+                          width={48}
+                          style={{
+                            objectFit: "cover",
+                            objectPosition: "center",
+                          }}
+                        />
+                      </div>
+                      <div className="d-flex flex-column">
+                        <div>
+                          <h6 className="mb-0">EPICODE</h6>
+                          <p className=" mb-0">course name here</p>
+                          <p className="subtitles mb-0">data here</p>
+                          <p className="subtitles mb-0">location</p>
+                          <p className="mb-0">petences hcomere</p>
+                          <p className="mb-0">
+                            <span className="link-main">Skills</span> here
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <hr className="my-2" />
+                    <div className="d-flex">
+                      <div>
+                        <img
+                          src="https://media.licdn.com/dms/image/C4E0BAQHYgix-Ynux1A/company-logo_100_100/0/1646830188434?e=1689811200&v=beta&t=oArOJOYE7ZD473jCAUzajl3JIXLkxiTvDx61tGEjeAk"
+                          alt="logo"
+                          width={48}
+                          style={{
+                            objectFit: "cover",
+                            objectPosition: "center",
+                          }}
+                        />
+                      </div>
+                      <div className="d-flex flex-column">
+                        <div>
+                          <h6 className="mb-0">EPICODE</h6>
+                          <p className="mb-0">course name here</p>
+                          <p className="subtitles mb-0">data here</p>
+                          <p className="subtitles mb-0">location</p>
+                          <p className="mb-0">petences hcomere</p>
+                          <p className="mb-0">
+                            <span className="link-main">Skills</span> here
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Card.Text>
+                <hr className="my-2" />
+              </Card.Body>
+            </Card>
+          </div>
+          <div className="mb-3">
+            <Card>
+              <Card.Body>
+                <Card.Title className="fs-5 mb-0 d-flex split">
                   <h5 className="mb-4">Formazione</h5>
                   <div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="25"
-                      height="25"
-                      fill="currentColor"
-                      className="bi bi-plus-lg me-4"
-                      viewBox="0 0 16 16"
+                    <button
+                      className="me-3"
+                      style={{ border: "none", backgroundColor: "transparent" }}
                     >
-                      <path
-                        fill-rule="evenodd"
-                        d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
-                      />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      className="bi bi-pencil me-2"
-                      viewBox="0 0 16 16"
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="25"
+                        height="25"
+                        fill="currentColor"
+                        className="bi bi-plus-lg"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      className="me-2"
+                      style={{ border: "none", backgroundColor: "transparent" }}
                     >
-                      <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
-                    </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        className="bi bi-pencil"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                      </svg>
+                    </button>
                   </div>
                 </Card.Title>
                 <Card.Text>
