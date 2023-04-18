@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import ProfileSideBar from "./ProfileSideBar";
 import { useEffect, useState } from "react";
+import Experience from "./Experience";
 
 const MainSection = () => {
   const [user, setUser] = useState([]);
@@ -323,7 +324,8 @@ const MainSection = () => {
               </Card.Body>
             </Card>
           </div>
-          <div className="mb-3">
+          <Experience />
+          {/* <div className="mb-3">
             <Card>
               <Card.Body>
                 <Card.Title className="fs-5 mb-0 d-flex split">
@@ -422,7 +424,7 @@ const MainSection = () => {
                 <hr className="my-2" />
               </Card.Body>
             </Card>
-          </div>
+          </div> */}
           <div className="mb-3">
             <Card>
               <Card.Body>

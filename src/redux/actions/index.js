@@ -1,1 +1,3 @@
-export const SET_PROFILE = "SET_PROFILE";
+export const ADD_ITEM = "ADD_ITEM";
+
+export const addItem = (item) => ({ type: "ADD_ITEM", payload: item });
