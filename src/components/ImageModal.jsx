@@ -1,12 +1,8 @@
 import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
-import { useParams } from "react-router";
 
 const ImageModal = props => {
-  const params = useParams();
-
   const handleClose = () => props.setImageModal(false);
-  const handleShow = () => props.setImageModal(true);
 
   const [image, setImage] = useState(null);
 
@@ -34,7 +30,6 @@ const ImageModal = props => {
         }
       );
       console.log(response);
-      props.fetchUser(params.id);
       handleClose();
     } catch (error) {
       console.log(error);
