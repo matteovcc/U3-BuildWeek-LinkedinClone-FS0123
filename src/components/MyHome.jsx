@@ -39,8 +39,8 @@ const MyHome = () => {
   };
 
   return (
-    <Container>
-      <Row>
+    <Container style={{ backgroundColor: "#f3f2ef", marginTop: "20px" }}>
+      <Row className="justify-content-center">
         <Col lg={2}>
           <Card>
             <Card.Img

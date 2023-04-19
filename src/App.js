@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div className="bg-light">
+        <div style={{ backgroundColor: "#f3f2ef" }}>
           <MyNavbar />
           <Routes>
             <Route path="/" element={<MainSection />} />

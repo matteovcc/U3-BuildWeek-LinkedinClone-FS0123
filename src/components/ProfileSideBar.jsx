@@ -34,7 +34,7 @@ const ProfileSideBar = () => {
   }, []);
   return (
     <>
-      <Col xs={3} className="bg-light d-none d-lg-block">
+      <Col xs={3} className=" d-none d-lg-block">
         {/* Modifica Url */}
         <Card className="py-1 px-1">
           <ListGroup variant="flush">
