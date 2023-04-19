@@ -7,7 +7,7 @@ import {
   NavDropdown,
   Navbar,
 } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 import { AiFillHome } from "react-icons/ai";
 import { HiUsers } from "react-icons/hi";
 import { MdWork } from "react-icons/md";
@@ -45,13 +45,13 @@ const MyNavbar = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link
-                href="#home"
-                className="d-flex flex-column align-items-center "
+              <Link
+                to="/home"
+                className="nav-link d-flex flex-column align-items-center"
               >
                 <AiFillHome fontSize={25} />
                 <p style={{ fontSize: 12 }}>Home</p>
-              </Nav.Link>
+              </Link>
               <Nav.Link
                 href="#MyNetwork"
                 className="d-flex flex-column align-items-center"
