@@ -7,10 +7,11 @@ const Image = props => {
   const [imageModal, setImageModal] = useState(false);
   return (
     <div className="profileCard mb-3">
-      {imageModal ? (
+      <>
+        {" "}
+        <ImageModal imageModal={imageModal} />
         <Card>
           <Card.Img variant="top" onClick={() => setImageModal(true)} src={props.user.image} />
-          <ImageModal fetchUser={props.fetchUser} imageModal={imageModal} setImageModal={setImageModal} />
 
           <Card.Body>
             <img src={props.user.image} alt="foto-profilo" width={150} style={{ borderRadius: "50%" }} />
@@ -84,7 +85,7 @@ const Image = props => {
             </Carousel>
           </Card.Body>
         </Card>
-      ) : null}
+      </>
     </div>
   );
 };
