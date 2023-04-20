@@ -51,7 +51,6 @@ const MyHome = () => {
 
   return (
     <>
-      <AddPost />
       <Container style={{ backgroundColor: "#f3f2ef", marginTop: "20px" }}>
         <Row className="justify-content-center">
           <Col lg={2}>
@@ -208,7 +207,8 @@ const MyHome = () => {
             </Card>
           </Col>
           <Col lg={5}>
-            <Modal show={showModal} onHide={handleClose}>
+            <AddPost />
+            {/*             <Modal show={showModal} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>Crea un Post</Modal.Title>
               </Modal.Header>
@@ -259,6 +259,7 @@ const MyHome = () => {
                 <Button onClick={handleApi}>Submit</Button>
               </Modal.Footer>
             </Modal>
+
             <Card>
               <div className="d-flex py-2 px-3">
                 <div>
@@ -367,7 +368,7 @@ const MyHome = () => {
                   Scrivi un articolo
                 </button>
               </div>
-            </Card>
+            </Card> */}
             <hr />
 
             <Card>
