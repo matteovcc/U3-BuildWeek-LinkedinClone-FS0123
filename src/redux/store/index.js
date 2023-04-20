@@ -3,6 +3,8 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 // import storage from "redux-persist/lib/storage";
 // import { encryptTransform } from "redux-persist-transform-encrypt";
 import modalReducer from "../reducers/modalReducer";
+import allPosts from "../reducers/allPosts";
+import createPost from "../reducers/createPost";
 
 // const persistConfiguration = {
 //   key: "root",
@@ -15,6 +17,8 @@ import modalReducer from "../reducers/modalReducer";
 // };
 const rootReducer = combineReducers({
   modal: modalReducer,
+  allPosts: allPosts,
+  createPost: createPost
 });
 
 // const persistedReducer = persistReducer(persistConfiguration, rootReducer);
@@ -28,7 +32,7 @@ const rootReducer = combineReducers({
 // export const persistor = persistStore(store);
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: rootReducer
 });
 
 export default store;
