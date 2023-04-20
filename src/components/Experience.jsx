@@ -15,17 +15,14 @@ const Experience = ({ experience }) => {
         </div>
         <div className="d-flex flex-column">
           <div>
-            <h6 className="mb-0">{experience.role}</h6>
-            <p className=" mb-0">{experience.company}</p>
+            <h5 className="mb-0">{experience.role}</h5>
+            <p className=" mb-0 fw-semibold">{experience.company}</p>
             <p className="subtitles mb-0">
-              {experience.startDate}
-              {experience.endDate}
+              Data di inizio :{experience.startDate}
             </p>
+            <p className="subtitles mb-0">Data di fine: {experience.endDate}</p>
             <p className="subtitles mb-0">{experience.area}</p>
             <p className="mb-0">{experience.description}</p>
-            <p className="mb-0">
-              <span className="link-main">Skills</span> here
-            </p>
           </div>
         </div>
       </div>
