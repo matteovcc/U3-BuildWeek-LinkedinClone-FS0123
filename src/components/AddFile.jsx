@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addItem } from "../redux/actions/index";
+// import { useDispatch } from "react-redux";
+// import { addItem } from "../redux/actions/index";
 import { Button, Card, Form, Modal } from "react-bootstrap";
 import EmojiPicker from "emoji-picker-react";
 
@@ -9,17 +10,17 @@ const AddFile = () => {
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
 
-  const [showImg, setShowImg] = useState("");
+  // const [showImg, setShowImg] = useState("");
   const [addComment, setAddComment] = useState("");
   const [isShown, setIsShown] = useState(false);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const getItems = () => {
-    dispatch(addItem(showImg));
-    dispatch(addItem(addComment));
-    handleClose();
-  };
+  // const getItems = () => {
+  //   // dispatch(addItem(showImg));
+  //   // dispatch(addItem(addComment));
+  //   handleClose();
+  // };
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -28,10 +29,10 @@ const AddFile = () => {
     console.log(e.target.files[0]);
   }
 
-  function handleApi() {
-    const formData = new FormData();
-    formData.append("showImg", showImg);
-  }
+  // function handleApi() {
+  //   const formData = new FormData();
+  //   // formData.append("showImg", showImg);
+  // }
 
   const showEmoji = () => {
     setIsShown(true);
@@ -90,7 +91,7 @@ const AddFile = () => {
           </Modal.Body>
           <Modal.Footer>
             <input type="file" name="ciao" onChange={handleImage} />
-            <Button onClick={handleApi}>Submit</Button>
+            {/* <Button onClick={handleApi}>Submit</Button> */}
           </Modal.Footer>
         </Modal>
       </div>

@@ -2,23 +2,22 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 // import { persistStore, persistReducer } from "redux-persist";
 // import storage from "redux-persist/lib/storage";
 // import { encryptTransform } from "redux-persist-transform-encrypt";
-import modalReducer from "../reducers/modalReducer";
-import allPosts from "../reducers/allPosts";
-import createPost from "../reducers/createPost";
+// import modalReducer from "../reducers/modalReducer";
+// import listExperiences from "../reducers/listExperience";
+import allExp from "../reducers/allExp.js";
+import reducerExp from "../reducers/reducerExp.js";
+import profileReducer from "../reducers/profileReducer.js";
+import allProfile from "../reducers/allProfile.js";
+import allPosts from "../reducers/allPosts.js";
+import createPost from "../reducers/createPost.js";
 
-// const persistConfiguration = {
-//   key: "root",
-//   storage,
-//   transforms: [
-//     encryptTransform({
-//       secretKey: process.env.REACT_APP_SECRET_KEY,
-//     }),
-//   ],
-// };
 const rootReducer = combineReducers({
-  modal: modalReducer,
+  reducerExp: reducerExp,
+  allExp: allExp,
+  profile: profileReducer,
+  allProfile: allProfile,
   allPosts: allPosts,
-  createPost: createPost
+  createPost: createPost,
 });
 
 // const persistedReducer = persistReducer(persistConfiguration, rootReducer);
@@ -32,7 +31,7 @@ const rootReducer = combineReducers({
 // export const persistor = persistStore(store);
 
 const store = configureStore({
-  reducer: rootReducer
+  reducer: rootReducer,
 });
 
 export default store;

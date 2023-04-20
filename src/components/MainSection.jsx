@@ -11,7 +11,8 @@ import {
 } from "react-bootstrap";
 import ProfileSideBar from "./ProfileSideBar";
 import { useEffect, useState } from "react";
-import Experience from "./Experience";
+import ListExperience from "./ListExperience";
+import ModalExperience from "./ModalExperience";
 import AddFile from "./AddFile";
 
 const MainSection = () => {
@@ -327,7 +328,8 @@ const MainSection = () => {
               </Card.Body>
             </Card>
           </div> */}
-          <Experience />
+          <ModalExperience />
+          <ListExperience />
           {/* <div className="mb-3">
             <Card>
               <Card.Body>
