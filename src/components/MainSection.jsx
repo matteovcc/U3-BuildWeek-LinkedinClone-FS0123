@@ -12,7 +12,7 @@ import {
 import ProfileSideBar from "./ProfileSideBar";
 import { useEffect, useState } from "react";
 import ListExperience from "./ListExperience";
-import ModalExperience from "./ModalExperience";
+// import ModalExperience from "./ModalExperience";
 import AddFile from "./AddFile";
 
 const MainSection = () => {
@@ -328,7 +328,7 @@ const MainSection = () => {
               </Card.Body>
             </Card>
           </div> */}
-          <ModalExperience />
+          {/* <ModalExperience /> */}
           <ListExperience />
           {/* <div className="mb-3">
             <Card>

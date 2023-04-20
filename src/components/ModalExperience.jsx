@@ -3,8 +3,7 @@ import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { newExperiencesAction } from "../redux/actions";
-import ListExperience from "./ListExperience";
-// import { addExperience } from "../redux/actions";
+import { AiOutlinePlus } from "react-icons/ai";
 
 const ModalExperience = () => {
   const handleSumbit = (e) => {
@@ -49,7 +48,9 @@ const ModalExperience = () => {
   // }, []);
   return (
     <>
-      <button onClick={handleShow}>APRI IL MODALE</button>
+      <Button variant="transparent" onClick={handleShow}>
+        <AiOutlinePlus style={{ width: 35, height: 35 }} />
+      </Button>
       <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Aggiungi esperienza</Modal.Title>
@@ -168,7 +169,6 @@ const ModalExperience = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      <ListExperience />
     </>
   );
 };

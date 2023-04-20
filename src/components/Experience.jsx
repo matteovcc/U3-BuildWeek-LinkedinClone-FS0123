@@ -1,6 +1,6 @@
 const Experience = ({ experience }) => {
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column mb-2 px-2 py-1">
       <div className="d-flex">
         <div>
           <img
@@ -29,6 +29,7 @@ const Experience = ({ experience }) => {
           </div>
         </div>
       </div>
+      <hr />
     </div>
   );
 };
