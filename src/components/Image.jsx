@@ -11,20 +11,20 @@ const Image = props => {
         {" "}
         <ImageModal imageModal={imageModal} />
         <Card>
-          <Card.Img variant="top" onClick={() => setImageModal(true)} src={props.user.image} />
+          <Card.Img variant="top" onClick={() => setImageModal(true)} src={props.image} />
 
           <Card.Body>
-            <img src={props.user.image} alt="foto-profilo" width={150} style={{ borderRadius: "50%" }} />
+            <img src={props.image} alt="foto-profilo" width={150} style={{ borderRadius: "50%" }} />
             <div className="d-flex justify-content-beetwen">
               <div className="me-5">
                 <Card.Title className="fs-4 mb-0">
-                  {props.user.name} {props.user.surname}
+                  {props.name} {props.surname}
                 </Card.Title>
-                <Card.Text className="mt-1 mb-0">{props.user.title}</Card.Text>
-                <Card.Text className="mb-1">{props.user.bio}</Card.Text>
+                <Card.Text className="mt-1 mb-0">{props.title}</Card.Text>
+                <Card.Text className="mb-1">{props.bio}</Card.Text>
                 <Card.Text className="mb-4">
                   <div className="subtitles">
-                    {props.user.area}•
+                    {props.area}•
                     <a href="#" className="link-main">
                       {" "}
                       Informazioni di contatto

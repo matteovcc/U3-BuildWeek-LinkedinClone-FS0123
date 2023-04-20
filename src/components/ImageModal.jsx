@@ -1,5 +1,5 @@
 import { Button, Modal } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ImageModal = props => {
   const handleClose = () => props.setImageModal(false);
