@@ -5,6 +5,7 @@ import MyNavbar from "./components/MyNavbar";
 import MainSection from "./components/MainSection";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyHome from "./components/MyHome";
+import Job from "./components/Job";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<MainSection />} />
             <Route exact path="/home" element={<MyHome />} />
-            {/* da aggiungere rotta dinamica /profile:id quando faremo homepage (Ricorda params nella fetch)*/}
+            <Route path="/job" element={<Job />} />
           </Routes>
           <MyFooter />
         </div>
