@@ -1,8 +1,8 @@
 import { Button, Modal } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { addExperience, newExperiencesAction } from "../redux/actions";
+import { newExperiencesAction } from "../redux/actions";
 import ListExperience from "./ListExperience";
 // import { addExperience } from "../redux/actions";
 
@@ -64,6 +64,7 @@ const ModalExperience = () => {
                 placeholder="Es:Sales Manager"
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
+                required
               />
               {/* {console.log(inputValue)} */}
             </Form.Group>

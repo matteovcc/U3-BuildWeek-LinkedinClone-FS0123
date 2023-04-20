@@ -76,7 +76,14 @@ export const getExperiencesAction = () => {
   };
 };
 
-export const newExperiencesAction = (newExp) => {
+export const newExperiencesAction = (
+  role,
+  area,
+  startDate,
+  endDate,
+  description,
+  company
+) => {
   return async (dispatch) => {
     try {
       const response = await fetch(
@@ -88,7 +95,14 @@ export const newExperiencesAction = (newExp) => {
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDNkMjJmYzIyYTZhYjAwMTQxYTg1NmYiLCJpYXQiOjE2ODE3MjgyNTIsImV4cCI6MTY4MjkzNzg1Mn0.6Ht22tt5eNs5wlp5tEG-7SPSIYZ6s95KvMIHAni3vTg",
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(newExp),
+          body: JSON.stringify(
+            role,
+            area,
+            startDate,
+            endDate,
+            description,
+            company
+          ),
         }
       );
       if (response.ok) {
