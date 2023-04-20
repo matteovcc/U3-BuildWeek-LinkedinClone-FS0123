@@ -1,12 +1,12 @@
-import { SET_PROFILE } from "../actions";
+import { ALL_EXPERIENCES } from "../actions";
 
 const initialState = {
-  content: "",
+  content: [],
 };
 
-const profileReducer = (state = initialState, action) => {
+const AllExp = (state = initialState, action) => {
   switch (action.type) {
-    case SET_PROFILE:
+    case ALL_EXPERIENCES:
       return {
         ...state,
         content: action.payload,
@@ -16,4 +16,4 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-export default profileReducer;
+export default AllExp;

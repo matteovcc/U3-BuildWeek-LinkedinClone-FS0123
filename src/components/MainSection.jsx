@@ -11,10 +11,21 @@ import {
 } from "react-bootstrap";
 import ProfileSideBar from "./ProfileSideBar";
 import { useEffect, useState } from "react";
-import Experience from "./Experience";
+import ModalExperience from "./ModalExperience";
+// import { useDispatch, useSelector } from "react-redux";
+// import { myProfile } from "../redux/actions";
+// import Experience from "./Experience";
 
 const MainSection = () => {
-  const [user, setUser] = useState([]);
+  // const dispatch = useDispatch();
+  // const profile = useSelector((state) => state.profile.content);
+  // useEffect(() => {
+  //   dispatch(myProfile());
+
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+
+  const [profile, setProfile] = useState([]);
   const fetchUser = async () => {
     try {
       const response = await fetch(
@@ -28,7 +39,7 @@ const MainSection = () => {
       );
       if (response.ok) {
         const data = await response.json();
-        setUser(data);
+        setProfile(data);
       } else {
         console.log("Failed to fetch");
       }
@@ -53,7 +64,7 @@ const MainSection = () => {
               />
               <Card.Body>
                 <img
-                  src={user.image}
+                  src={profile.image}
                   alt="foto-profilo"
                   width={150}
                   style={{ borderRadius: "50%" }}
@@ -61,13 +72,13 @@ const MainSection = () => {
                 <div className="d-flex justify-content-beetwen">
                   <div className="me-5">
                     <Card.Title className="fs-4 mb-0">
-                      {user.name} {user.surname}
+                      {profile.name} {profile.surname}
                     </Card.Title>
-                    <Card.Text className="mt-1 mb-0">{user.title}</Card.Text>
-                    <Card.Text className="mb-1">{user.bio}</Card.Text>
+                    <Card.Text className="mt-1 mb-0">{profile.title}</Card.Text>
+                    <Card.Text className="mb-1">{profile.bio}</Card.Text>
                     <Card.Text className="mb-4">
                       <div className="subtitles">
-                        {user.area}•
+                        {profile.area}•
                         <a href="#" className="link-main">
                           {" "}
                           Informazioni di contatto
@@ -324,7 +335,12 @@ const MainSection = () => {
               </Card.Body>
             </Card>
           </div>
-          <Experience />
+
+          {/* qui */}
+
+          <ModalExperience />
+
+          {/* <Experience /> */}
           {/* <div className="mb-3">
             <Card>
               <Card.Body>
