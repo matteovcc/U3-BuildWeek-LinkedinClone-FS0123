@@ -12,7 +12,6 @@ function App() {
     <>
       <BrowserRouter>
         <div style={{ backgroundColor: "#f3f2ef" }}>
-          <MyNavbar />
           <Routes>
             <Route path="/" element={<MainSection />} />
             <Route exact path="/home" element={<MyHome />} />

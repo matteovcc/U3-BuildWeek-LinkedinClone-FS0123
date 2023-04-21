@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allPosts } from "../redux/actions";
 import AddPost from "./AddPost";
+import MyNavbar from "./MyNavbar";
 
 const MyHome = () => {
   const [showModal, setShowModal] = useState(false);
@@ -51,6 +52,7 @@ const MyHome = () => {
 
   return (
     <>
+      <MyNavbar />
       <Container style={{ backgroundColor: "#f3f2ef", marginTop: "20px" }}>
         <Row className="justify-content-center">
           <Col lg={2}>
