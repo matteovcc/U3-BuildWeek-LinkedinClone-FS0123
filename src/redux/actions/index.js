@@ -3,13 +3,12 @@ export const ALL_PROFILE = "ALL_PROFILE";
 
 export const ADD_EXPERIENCE = "ADD_EXPERIENCE";
 export const ALL_EXPERIENCES = "ALL_EXPERIENCES";
-// export const addExperience = (experiences) => ({
-//   type: ADD_EXPERIENCE,
-//   payload: experiences,
-// });
 
 export const GET_POSTS = "GET_POSTS";
 export const POST_POSTS = "POST_POSTS";
+
+// export const GET_COMMENTS = "GET_COMMENTS";
+export const POST_COMMENTS = "POST_COMMENTS";
 
 export const myProfile = () => {
   return async (dispatch) => {
@@ -153,6 +152,30 @@ export const createPost = (content) => {
       if (response.ok) {
         const newPost = await response.json();
         dispatch({ type: POST_POSTS, payload: newPost });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const postComment = (comment, rate, elementId) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/comments/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDQyM2Q1YjU4ZTA2MjAwMTRhNGVmZmYiLCJpYXQiOjE2ODIwNjI2ODMsImV4cCI6MTY4MzI3MjI4M30.fv3GtLyD760SkVc57ZOwMfiHMZkqkbgVO-hRXN_LAVw`,
+          },
+          body: JSON.stringify({ comment, rate, elementId }),
+        }
+      );
+      if (response.ok) {
+        const newComment = await response.json();
+        dispatch({ type: POST_COMMENTS, payload: newComment });
       }
     } catch (error) {
       console.log(error);
