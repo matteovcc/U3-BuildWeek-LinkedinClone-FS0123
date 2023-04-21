@@ -32,38 +32,38 @@ const Job = () => {
   return (
     <>
       <Container>
-        <Row>
-          <Col xs={10} className="mx-auto">
-            <h3 className="">Cerca lavoro per te</h3>
-          </Col>
-          <Col xs={10} className="mx-auto">
+        <Row className="justify-content-md-center">
+          <Col xs={12} className="mx-auto">
             <Form onSubmit={handleSubmit}>
               <Form.Control type="search" value={query} onChange={handleChange} placeholder="cerca lavoro" />
             </Form>
           </Col>
-          <Col xs={3} className="mt-3 bg-white rounded">
-            <div className="mb-3 text-secondary">
-              <BsFillBookmarkFill style={{ width: 20, height: 20, marginRight: "3px" }} /> Mie offerte di lavoro
+
+          <Col lg={2} className="d-none d-lg-block mt-3 pt-3 bg-white rounded">
+            <div className="mb-3">
+              <BsFillBookmarkFill style={{ color: "#535c68", width: 20, height: 20, marginRight: "3px" }} /> My Jobs
             </div>
-            <div className="mb-3 text-secondary">
-              <AiFillBell style={{ width: 20, height: 20, marginRight: "3px" }} /> Avvisi offerte di lavoro
+            <div className="mb-3">
+              <AiFillBell style={{ color: "#535c68", width: 20, height: 20, marginRight: "3px" }} /> Jobs alerts
             </div>
-            <div className="mb-3 text-secondary">
+            <div className="mb-3">
               {" "}
-              <BsClipboardCheck style={{ width: 20, height: 20, marginRight: "3px" }} /> Valutazioni delle competenze
+              <BsClipboardCheck style={{ color: "#535c68", width: 20, height: 20, marginRight: "3px" }} /> Demonstrate
+              skills
             </div>
-            <div className="mb-3 text-secondary">
-              <AiFillYoutube style={{ width: 20, height: 20, marginRight: "3px" }} /> Indicazioni per chi cerca lavoro{" "}
+            <div className="mb-3">
+              <AiFillYoutube style={{ color: "#535c68", width: 20, height: 20, marginRight: "3px" }} /> Interview prep
             </div>
-            <div className="mb-3 text-secondary">
+            <div className="mb-3 ">
               {" "}
-              <BsFillGearFill style={{ width: 20, height: 20, marginRight: "3px" }} />
-              Impostazioni candidatura
+              <BsFillGearFill style={{ color: "#535c68", width: 20, height: 20, marginRight: "6px" }} />
+              Application settings
             </div>
           </Col>
-          <Col xs={6} className="bg-white mt-3 mx-auto rounded">
+
+          <Col xs={10} lg={5} className="bg-white mt-3 ms-4 rounded">
             {jobs.map(job => (
-              <div key={job._id} className="mt-3 mb-2  rounded shadow-lg p-1">
+              <div key={job._id} className="mt-3 mb-2 p-1">
                 <div className="d-flex justify-content-between">
                   <p className="text-primary fw-semibold">{job.title}</p>
                   <p className="">
@@ -89,8 +89,18 @@ const Job = () => {
                 <div className="text-end">
                   <small>{job.publication_date}</small>
                 </div>
+                <hr />
               </div>
             ))}
+          </Col>
+          <Col lg={3} className="d-none d-lg-block bg-white mt-3 pt-3 ms-4 rounded">
+            <p className="ms-1 fw-bold mb-0">Open to work</p>
+            <p className=" ms-1 text-secondary" style={{ fontSize: "small" }}>
+              Reccomended based on your activity
+            </p>
+            <p className="ms-1">
+              Get more InMails from recruiters when you are #OpenToWork - you control who sees this
+            </p>
           </Col>
         </Row>
       </Container>
