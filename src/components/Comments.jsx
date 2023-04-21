@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import MyNavbar from "./MyNavbar";
 
 import { useParams } from "react-router-dom";
+import { Card } from "react-bootstrap";
 const Comments = () => {
   const params = useParams();
   const [comments, setComments] = useState([]);
@@ -31,15 +33,21 @@ const Comments = () => {
   });
 
   return (
-    <div className="mx-auto">
-      <ol>
-        {comments.map((comment) => (
-          <li>
-            <p className="fw-semibold">{comment.comment}</p>
-          </li>
-        ))}
-      </ol>
-    </div>
+    <>
+      <MyNavbar />
+      <Card className="bg-white rounded w-50 mx-auto mt-2 p-1">
+        <h3 className="ms-1">Commenti:</h3>
+        <div className="d-flex justify-content-start mt-1">
+          <ol>
+            {comments.map((comment) => (
+              <li>
+                <p className="fw-semibold">{comment.comment}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Card>
+    </>
   );
 };
 
