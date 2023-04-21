@@ -10,6 +10,7 @@ import profileReducer from "../reducers/profileReducer.js";
 import allProfile from "../reducers/allProfile.js";
 import allPosts from "../reducers/allPosts.js";
 import createPost from "../reducers/createPost.js";
+import createComment from "../reducers/createComment.js";
 
 const rootReducer = combineReducers({
   reducerExp: reducerExp,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   allProfile: allProfile,
   allPosts: allPosts,
   createPost: createPost,
+  createComment: createComment,
 });
 
 // const persistedReducer = persistReducer(persistConfiguration, rootReducer);

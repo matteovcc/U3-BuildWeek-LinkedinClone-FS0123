@@ -30,7 +30,8 @@ const Comments = () => {
 
   useEffect(() => {
     getComments();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -41,7 +42,9 @@ const Comments = () => {
           <ol>
             {comments.map((comment) => (
               <li>
+                <p className="fw-bold">{comment.author}</p>
                 <p className="fw-semibold">{comment.comment}</p>
+                <small>{comment.createdAt}</small>
               </li>
             ))}
           </ol>
